@@ -19,14 +19,15 @@ public class SpringRedisApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
+		studentService.deleteAllStudent();
+
 		studentService.saveStudent(new Student(1, "TQK", Student.Gender.MALE));
 		studentService.saveStudent(new Student(2, "LAD", Student.Gender.FEMALE));
 		studentService.findAll().forEach(System.out :: println);
 		System.out.println("-------------------");
-		studentService.deleteStudentById("1");
-		System.out.println(studentService.findStudent("2"));
+		System.out.println("findById: "+studentService.findById("2"));
 		System.out.println("-------------------");
-		System.out.println(studentService.findStudent("1"));
+		System.out.println("findByName: " + studentService.findByName("TQK"));
 
 		studentService.deleteAllStudent();
 

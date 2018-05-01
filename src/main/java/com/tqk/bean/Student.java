@@ -1,6 +1,8 @@
 package com.tqk.bean;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
+import org.springframework.data.redis.core.index.Indexed;
 
 import java.io.Serializable;
 
@@ -19,9 +21,10 @@ public class Student implements Serializable {
         MALE, FEMALE;
     }
 
-
+    @Id
     private int id;
 
+    @Indexed
     private String name;
 
     private  Gender gender;

@@ -29,12 +29,16 @@ public class StudentService {
         return student;
     }
 
-    public Student findStudent(String id) {
+    public Student findById(String id) {
         Optional<Student> optional = studentRepository.findById(id);
         if (optional.isPresent()) {
             return optional.get();
         }
         return null;
+    }
+
+    public List<Student> findByName(String name){
+        return studentRepository.findByName(name);
     }
 
     public List<Student> findAll() {
