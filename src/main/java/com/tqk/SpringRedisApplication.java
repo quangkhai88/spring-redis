@@ -1,5 +1,6 @@
 package com.tqk;
 
+import com.tqk.bean.Gender;
 import com.tqk.bean.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -21,8 +22,8 @@ public class SpringRedisApplication implements CommandLineRunner {
 
 		studentService.deleteAllStudent();
 
-		studentService.saveStudent(new Student(1, "TQK", Student.Gender.MALE));
-		studentService.saveStudent(new Student(2, "LAD", Student.Gender.FEMALE));
+		studentService.saveStudent(new Student(1, "TQK", Gender.MALE));
+		studentService.saveStudent(new Student(2, "LAD", Gender.FEMALE));
 		studentService.findAll().forEach(System.out :: println);
 		System.out.println("-------------------");
 		System.out.println("findById: "+studentService.findById("2"));

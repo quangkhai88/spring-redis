@@ -17,10 +17,6 @@ public class Student implements Serializable {
 
     private static final long serialVersionUID = -6398546860689891181L;
 
-    public enum Gender  {
-        MALE, FEMALE;
-    }
-
     @Id
     private int id;
 
