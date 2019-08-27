@@ -1,5 +1,6 @@
 package com.tqk.config;
 
+import com.tqk.bean.Student;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
@@ -26,7 +27,6 @@ public class Configuration {
     public JedisConnectionFactory connectionFactory() {
 
         System.out.println(redisHost);
-
         System.out.println(redisPort);
 
         RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
@@ -39,12 +39,15 @@ public class Configuration {
     @Bean
     public RedisTemplate<String, Object> redisTemplate() {
 
-        RedisTemplate<String, Object> template =  new RedisTemplate<String, Object>();
+        RedisTemplate<String, Object> template =  new RedisTemplate<>();
         template.setConnectionFactory(connectionFactory());
-
-
-        System.out.println(template);
-
         return template;
     }
+
+//    @Bean
+//    public RedisTemplate<String, Student> redisTemplate() {
+//        RedisTemplate<String, Student> redisTemplate = new RedisTemplate<>();
+//        redisTemplate.setConnectionFactory(connectionFactory());
+//        return redisTemplate;
+//    }
 }
